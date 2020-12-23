@@ -10,9 +10,11 @@ export default function SignIn() {
   const [text, setText] = useState('');
   const navigation = useNavigation();
 
-  function handleNavigateRegister() {
-    
+  function handleNavigateRegister() { 
     navigation.navigate('SignUp');
+  }
+  function handleNavigateForgotPassword() {
+    navigation.navigate('ForgotPassword');
   }
   return (
     <View style={styles.containerComponent}>
@@ -28,7 +30,6 @@ export default function SignIn() {
           onChangeText={text => setText(text)}
           underlineColor="transparent"
         />
-        
         <TextInput
           style={styles.input}
           mode="outlined"
@@ -38,7 +39,9 @@ export default function SignIn() {
           onChangeText={text => setText(text)}
           right={<TextInput.Icon name="eye" color='#9b9ea0' onPress={() => {}} />}  
         />
-        <Text style={styles.forgotPasswordText}>Esqueceu a sua senha?</Text>
+        <TouchableOpacity onPress={handleNavigateForgotPassword}>
+          <Text style={styles.forgotPasswordText}>Esqueceu a sua senha?</Text>
+        </TouchableOpacity>
         
         <TouchableOpacity style={styles.buttonLogin} onPress={() => {}}>
           <Text style={styles.buttonLoginText}>

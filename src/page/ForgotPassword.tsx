@@ -1,25 +1,35 @@
 import React, { useState } from 'react';
 
 import { TextInput } from 'react-native-paper';
-import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
-export default function SignUp() {
+import ImgForgotPassword from '../../assets/forgotPassword.png';
+
+export default function ForgotPassword() {
   const [text, setText] = useState('');
+  const navigation = useNavigation();
 
+  function handleNavigateRegister() {
+    navigation.navigate('SignUp');
+  }
+
+  function handleNavigateForgotPassword() { 
+    navigation.navigate('ForgotPassword');
+  }
   return (
     <View style={styles.containerComponent}>
       <View style={styles.container}>
         <View style={styles.boxTitle}>
-          <Text style={styles.title}>Registre-se</Text>
+          <Image style={styles.img} source={ImgForgotPassword} />
+          <Text style={styles.title}>Esqueceu Sua senha?</Text>
+          <Text style={styles.text}>
+            Por favor, informe o E-mail associado a sua
+            conta que enviaremos um link para o mesmo
+            com as intruções para restauração de sua 
+            senha.
+          </Text>
         </View>
-        <TextInput
-          style={styles.input}
-          mode="outlined"
-          label="Nome"
-          value={text}
-          onChangeText={text => setText(text)}
-          underlineColor="transparent"
-        />
         <TextInput
           style={styles.input}
           mode="outlined"
@@ -28,28 +38,9 @@ export default function SignUp() {
           onChangeText={text => setText(text)}
           underlineColor="transparent"
         />
-        <TextInput
-          style={styles.input}
-          mode="outlined"
-          label="Senha"
-          value={text}
-          secureTextEntry={true}
-          onChangeText={text => setText(text)}
-          right={<TextInput.Icon name="eye" color='#9b9ea0' onPress={() => {}} />}  
-        />
-        <TextInput
-          style={styles.input}
-          mode="outlined"
-          label="Confirmar Senha"
-          value={text}
-          secureTextEntry={true}
-          onChangeText={text => setText(text)}
-          right={<TextInput.Icon name="eye" color='#9b9ea0' onPress={() => {}} />}  
-        />
-        
         <TouchableOpacity style={styles.buttonLogin} onPress={() => {}}>
           <Text style={styles.buttonLoginText}>
-            Cadastrar
+            Enviar
           </Text>
         </TouchableOpacity>
       </View>
@@ -65,17 +56,25 @@ const styles = StyleSheet.create({
   container: {
     marginRight: 30,
     marginLeft: 30,
-    flex: 1,
     justifyContent: 'center',
-    
+  },
+  img: {
+    marginTop: 20,
+    marginBottom: 40
   },
   boxTitle: {
+    flexDirection: 'column',
     alignItems: 'center',
-    marginBottom: 30
+    marginBottom: 20
   },
   title: {
     fontFamily: 'roboto-bold',
     fontSize: 30
+  },
+  text: {
+    fontFamily: 'roboto-regular',
+    fontSize: 15,
+    marginTop: 10
   },
   input: {
     backgroundColor: '#fff',
@@ -94,5 +93,4 @@ const styles = StyleSheet.create({
     fontSize: 20,
     color: '#fff'
   },
-  
 });
