@@ -2,10 +2,16 @@ import React, { useState } from 'react';
 
 import { TextInput } from 'react-native-paper';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
 export default function SignUp() {
   const [text, setText] = useState('');
+  const navigation = useNavigation();
 
+  function handleNavigateRegister() { 
+    navigation.navigate('SignUp');
+  }
+  
   return (
     <View style={styles.containerComponent}>
       <View style={styles.container}>
@@ -47,7 +53,7 @@ export default function SignUp() {
           right={<TextInput.Icon name="eye" color='#9b9ea0' onPress={() => {}} />}  
         />
         
-        <TouchableOpacity style={styles.buttonLogin} onPress={() => {}}>
+        <TouchableOpacity style={styles.buttonLogin} onPress={handleNavigateRegister}>
           <Text style={styles.buttonLoginText}>
             Cadastrar
           </Text>

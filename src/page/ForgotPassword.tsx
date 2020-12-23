@@ -10,8 +10,8 @@ export default function ForgotPassword() {
   const [text, setText] = useState('');
   const navigation = useNavigation();
 
-  function handleNavigateRegister() {
-    navigation.navigate('SignUp');
+  function handleNavigateLogin() {
+    navigation.navigate('SignIn');
   }
 
   function handleNavigateForgotPassword() { 
@@ -38,7 +38,7 @@ export default function ForgotPassword() {
           onChangeText={text => setText(text)}
           underlineColor="transparent"
         />
-        <TouchableOpacity style={styles.buttonLogin} onPress={() => {}}>
+        <TouchableOpacity style={styles.buttonLogin} onPress={handleNavigateLogin}>
           <Text style={styles.buttonLoginText}>
             Enviar
           </Text>

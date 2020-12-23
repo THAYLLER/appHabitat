@@ -16,6 +16,9 @@ export default function SignIn() {
   function handleNavigateForgotPassword() {
     navigation.navigate('ForgotPassword');
   }
+  function handleNavigateWelcomeScrean() {
+    navigation.navigate('WelcomeScrean');
+  }
   return (
     <View style={styles.containerComponent}>
       <View style={styles.container}>
@@ -43,7 +46,7 @@ export default function SignIn() {
           <Text style={styles.forgotPasswordText}>Esqueceu a sua senha?</Text>
         </TouchableOpacity>
         
-        <TouchableOpacity style={styles.buttonLogin} onPress={() => {}}>
+        <TouchableOpacity style={styles.buttonLogin} onPress={handleNavigateWelcomeScrean}>
           <Text style={styles.buttonLoginText}>
             Login
           </Text>

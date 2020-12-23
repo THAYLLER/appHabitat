@@ -6,6 +6,8 @@ import { createStackNavigator } from '@react-navigation/stack';
 import SignIn from './page/SignIn';
 import SignUp from './page/SignUp';
 import ForgotPassword from './page/ForgotPassword';
+import WelcomeScrean from './page/WelcomeScrean';
+import Home from './page/Home';
 
 const { Navigator, Screen } = createStackNavigator();
 
@@ -38,6 +40,8 @@ export default function Routes() {
             }
           }} 
         />
+        <Screen name="WelcomeScrean" component={WelcomeScrean} />
+        <Screen name="Home" component={Home} />
       </Navigator>
     </NavigationContainer>
   )
