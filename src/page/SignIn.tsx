@@ -32,6 +32,7 @@ export default function SignIn() {
           value={text}
           onChangeText={text => setText(text)}
           underlineColor="transparent"
+          theme={{colors: {primary: '#fa3c22'}}}
         />
         <TextInput
           style={styles.input}
@@ -40,6 +41,7 @@ export default function SignIn() {
           value={text}
           secureTextEntry={true}
           onChangeText={text => setText(text)}
+          theme={{colors: {primary: '#fa3c22'}}}
           right={<TextInput.Icon name="eye" color='#9b9ea0' onPress={() => {}} />}  
         />
         <TouchableOpacity onPress={handleNavigateForgotPassword}>
@@ -107,7 +109,7 @@ const styles = StyleSheet.create({
     fontFamily: 'roboto-medium'
   },
   buttonLogin: {
-    backgroundColor: '#6c3bd0',
+    backgroundColor: '#fa3c22',
     height: 50,
     justifyContent: 'center',
     alignItems: 'center',
@@ -133,7 +135,7 @@ const styles = StyleSheet.create({
   linkNewAccountText: {
     fontFamily: 'roboto-medium',
     fontSize: 15,
-    color: '#6c3bd0',
+    color: '#fa3c22',
   },
   boxSignInSocialMedia: {
     borderTopColor: '#abacad',

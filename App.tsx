@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import * as Font from 'expo-font';
 import AppLoading from 'expo-app-loading';
 
-import Routes from './src/routes';
+import Routes from './src/routes/routes';
 
 const fetchFonts = () => {
   return Font.loadAsync({

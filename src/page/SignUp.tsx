@@ -25,6 +25,7 @@ export default function SignUp() {
           value={text}
           onChangeText={text => setText(text)}
           underlineColor="transparent"
+          theme={{colors: {primary: '#fa3c22'}}}
         />
         <TextInput
           style={styles.input}
@@ -33,6 +34,7 @@ export default function SignUp() {
           value={text}
           onChangeText={text => setText(text)}
           underlineColor="transparent"
+          theme={{colors: {primary: '#fa3c22'}}}
         />
         <TextInput
           style={styles.input}
@@ -41,6 +43,7 @@ export default function SignUp() {
           value={text}
           secureTextEntry={true}
           onChangeText={text => setText(text)}
+          theme={{colors: {primary: '#fa3c22'}}}
           right={<TextInput.Icon name="eye" color='#9b9ea0' onPress={() => {}} />}  
         />
         <TextInput
@@ -50,6 +53,7 @@ export default function SignUp() {
           value={text}
           secureTextEntry={true}
           onChangeText={text => setText(text)}
+          theme={{colors: {primary: '#fa3c22'}}}
           right={<TextInput.Icon name="eye" color='#9b9ea0' onPress={() => {}} />}  
         />
         
@@ -88,7 +92,7 @@ const styles = StyleSheet.create({
     paddingTop: 20
   },
   buttonLogin: {
-    backgroundColor: '#6c3bd0',
+    backgroundColor: '#fa3c22',
     height: 50,
     justifyContent: 'center',
     alignItems: 'center',
