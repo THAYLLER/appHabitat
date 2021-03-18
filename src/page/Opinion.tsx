@@ -4,7 +4,7 @@ import { TextInput } from 'react-native-paper';
 import { StyleSheet, Text, View, TouchableOpacity, Dimensions } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
-export default function SignUp() {
+export default function Opinion() {
   const [text, setText] = useState('');
   const navigation = useNavigation();
 
@@ -16,39 +16,22 @@ export default function SignUp() {
     <View style={styles.containerComponent}>
       <View style={styles.container}>
         <View style={styles.boxTitle}>
-          <Text style={styles.title}>Registre-se</Text>
+          <Text style={styles.title}>Envie sua Opnião</Text>
         </View>
         <TextInput
           style={styles.input}
           mode="outlined"
-          label="Nome"
+          label="Insira sua opinião"
+          multiline
+          numberOfLines={20}
           value={text}
           onChangeText={text => setText(text)}
           underlineColor="transparent"
           theme={{colors: {primary: '#24aaff'}}}
-        />
-        <TextInput
-          style={styles.input}
-          mode="outlined"
-          label="Email"
-          value={text}
-          onChangeText={text => setText(text)}
-          underlineColor="transparent"
-          theme={{colors: {primary: '#24aaff'}}}
-        />
-        <TextInput
-          style={styles.input}
-          mode="outlined"
-          label="Senha"
-          value={text}
-          secureTextEntry={true}
-          onChangeText={text => setText(text)}
-          theme={{colors: {primary: '#24aaff'}}}
-          right={<TextInput.Icon name="eye" color='#9b9ea0' onPress={() => {}} />}  
         />
         <TouchableOpacity style={styles.buttonLogin} onPress={handleNavigateRegister}>
           <Text style={styles.buttonLoginText}>
-            Cadastrar
+            Enviar
           </Text>
         </TouchableOpacity>
       </View>
@@ -65,7 +48,7 @@ const styles = StyleSheet.create({
     marginRight: 30,
     marginLeft: 30,
     flex: 1,
-    justifyContent: 'space-evenly',
+    justifyContent: 'space-between',
     height: Dimensions.get("window").height,
     paddingBottom: 20
   },

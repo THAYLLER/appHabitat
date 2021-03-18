@@ -12,10 +12,10 @@ export default function Circle() {
   const [searchQuery, setSearchQuery] = useState('');
   const [text, setText] = useState('');
   const [typeCircleVisible, settypeCircleVisible] = useState(false);
-  const [stage, setStage] = useState(1);
+  const [stage, setStage] = useState(2);
 
   const onChangeSearch = (query: React.SetStateAction<string>) => setSearchQuery(query);
-  
+  const navigation = useNavigation();
 
   return (
     <>
@@ -55,21 +55,20 @@ export default function Circle() {
         onBackButtonPress={() => settypeCircleVisible(!typeCircleVisible)}
         onBackdropPress={() => settypeCircleVisible(!typeCircleVisible)}
       >
-        <View style={ styles.containerSheet }>
-          <View style={ styles.headerSheet }>
-            <View style={styles.header}>
-              <TouchableOpacity style={styles.btnHeaderSheet} onPress={() => settypeCircleVisible(!typeCircleVisible)}>
-                <IconAntDesign size={25} color='#000' name="closecircleo" />
-              </TouchableOpacity>
-            </View>
+        <View style={ styles.containerSheet}>
+          <View style={styles.header}>
+            <TouchableOpacity style={styles.btnHeaderSheet} onPress={() => settypeCircleVisible(!typeCircleVisible)}>
+              <IconAntDesign size={25} color='#000' name="closecircleo" />
+            </TouchableOpacity>
+          </View>
             {
-              stage === 0 &&
+              stage === 0 && 
                 <View style={styles.bodySheet}>
                   <Text style={styles.titleBodySheet}>Criar um Círculos</Text>
                   <TouchableOpacity style={styles.boxAddCircleSheet} onPress={() => setStage(1)}>
-                    <TouchableOpacity style={styles.circleAvatar} onPress={() => setStage(1)}>
+                    <View style={styles.circleAvatar} onPress={() => setStage(1)}>
                       <IconAntFontAwesome name="briefcase" size={30} color="#666666" style={{ left: 14 }} />
-                    </TouchableOpacity>
+                    </View>
                     <View style={{ flexDirection: 'column' }}>
                       <Text style={styles.textAddCircle}> Sua empresa</Text>
                       <Text style={styles.descriptionAddCircle}> Específico para sua empresa</Text>
@@ -98,6 +97,22 @@ export default function Circle() {
             {
               stage === 1 &&
                 <View style={styles.bodySheetStageOne}>
+                  <Text style={styles.titleBodySheet}>Você quer ativar o sistema de pontos?</Text>
+                  <TouchableOpacity style={styles.buttonSucess} onPress={() => navigation.navigate('MyCircle')}>
+                    <Text style={styles.buttonConcluirText}>
+                      Sim
+                    </Text>
+                  </TouchableOpacity>
+                  <TouchableOpacity style={styles.buttonDanger} onPress={() => navigation.navigate('MyCircle')}>
+                    <Text style={styles.buttonDangerText}>
+                      Não
+                    </Text>
+                  </TouchableOpacity>
+                </View>
+            }
+            {
+              stage === 2 &&
+                <View style={styles.bodySheetStageOne}>
                   <Text style={styles.titleBodySheet}>Nomeie seu Círculos</Text>
                   <TextInput
                     style={styles.input}
@@ -105,11 +120,15 @@ export default function Circle() {
                     label="Nome do Círculo"
                     value={text}
                     onChangeText={text => setText(text)}
-                    theme={{colors: {primary: '#fa3c22'}}}
+                    theme={{colors: {primary: '#24aaff'}}}
                   />
+                  <TouchableOpacity style={styles.buttonConcluir} onPress={() => navigation.navigate('MyCircle')}>
+                    <Text style={styles.buttonConcluirText}>
+                      Concluir
+                    </Text>
+                  </TouchableOpacity>
                 </View>
             }
-          </View>
         </View>
       </BottomSheet>
     </>
@@ -155,6 +174,7 @@ const styles = StyleSheet.create({
     height: '100%',
     position: 'absolute',
     top: 60,
+    padding: 20
   },
   bodySheetStageOne: {
     width: '100%',
@@ -215,7 +235,7 @@ const styles = StyleSheet.create({
   containerSheet:{
     backgroundColor: '#fff',
     width: '100%',
-    height: 370,
+    height: 390,
     alignItems: 'center',
     borderTopLeftRadius: 20,
     borderTopRightRadius: 20
@@ -231,8 +251,55 @@ const styles = StyleSheet.create({
     padding: 15,
     flex: 1,
   },
+  containerNewCircleSheet:{
+    backgroundColor: '#fff',
+    width: '100%',
+    height: 320,
+    alignItems: 'center',
+    borderTopLeftRadius: 20,
+    borderTopRightRadius: 20
+  },
+  
   input: {
     backgroundColor: '#fff',
     paddingTop: 20
   },
+  buttonSucess: {
+    backgroundColor: '#24aaff',
+    height: 50,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 10,
+    marginTop: 50,
+  },
+  buttonDanger: {
+    backgroundColor: '#fff',
+    height: 50,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 10,
+    marginTop: 10,
+    borderWidth: 1,
+    borderColor: '#24aaff',
+    borderStyle: 'solid',
+  },
+  buttonConcluir: {
+    backgroundColor: '#24aaff',
+    height: 50,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 10,
+    marginTop: 80,
+  },
+  buttonConcluirText: {
+    fontFamily: 'roboto-regular',
+    fontSize: 20,
+    color: '#fff'
+  },
+  buttonDangerText: {
+    fontFamily: 'roboto-regular',
+    fontSize: 20,
+    color: '#24aaff'
+  },
+  
 });

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import { TextInput } from 'react-native-paper';
-import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, Dimensions } from 'react-native';
 import IconAntDesign from 'react-native-vector-icons/AntDesign';
 import IconAntFontAwesome from 'react-native-vector-icons/FontAwesome';
 import { useNavigation } from '@react-navigation/native';
@@ -32,7 +32,7 @@ export default function SignIn() {
           value={text}
           onChangeText={text => setText(text)}
           underlineColor="transparent"
-          theme={{colors: {primary: '#fa3c22'}}}
+          theme={{colors: {primary: '#24aaff'}}}
         />
         <TextInput
           style={styles.input}
@@ -41,7 +41,7 @@ export default function SignIn() {
           value={text}
           secureTextEntry={true}
           onChangeText={text => setText(text)}
-          theme={{colors: {primary: '#fa3c22'}}}
+          theme={{colors: {primary: '#24aaff'}}}
           right={<TextInput.Icon name="eye" color='#9b9ea0' onPress={() => {}} />}  
         />
         <TouchableOpacity onPress={handleNavigateForgotPassword}>
@@ -88,8 +88,10 @@ const styles = StyleSheet.create({
     marginRight: 30,
     marginLeft: 30,
     flex: 1,
-    justifyContent: 'center',
-    
+    justifyContent: 'space-between',
+    height: Dimensions.get("window").height,
+    paddingTop: 20,
+    paddingBottom: 20,
   },
   boxTitle: {
     alignItems: 'center',
@@ -109,11 +111,11 @@ const styles = StyleSheet.create({
     fontFamily: 'roboto-medium'
   },
   buttonLogin: {
-    backgroundColor: '#fa3c22',
+    backgroundColor: '#24aaff',
     height: 50,
     justifyContent: 'center',
     alignItems: 'center',
-    borderRadius: 30,
+    borderRadius: 10,
     marginTop: 30
   },
   buttonLoginText: {
@@ -135,7 +137,7 @@ const styles = StyleSheet.create({
   linkNewAccountText: {
     fontFamily: 'roboto-medium',
     fontSize: 15,
-    color: '#fa3c22',
+    color: '#24aaff',
   },
   boxSignInSocialMedia: {
     borderTopColor: '#abacad',
@@ -158,7 +160,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#ea534e',
     height: 50,
     width: 120,
-    borderRadius: 100,
+    borderRadius: 10,
     alignItems: 'center',
     justifyContent: 'center',
     marginEnd: 20
@@ -167,7 +169,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#3c5a99',
     height: 50,
     width: 120,
-    borderRadius: 100,
+    borderRadius: 10,
     alignItems: 'center',
     justifyContent: 'center'
   },

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, Image, Dimensions } from 'react-native';
 import IconAntDesign from 'react-native-vector-icons/AntDesign';
 import { useNavigation } from '@react-navigation/native';
 
@@ -25,7 +25,7 @@ export default function WelcomeScrean() {
       </Text>
 
       <TouchableOpacity onPress={handleNavigateHome} style={styles.btn}>
-        <IconAntDesign name="arrowright" size={30} color="#fff" />
+        <IconAntDesign name="arrowright" size={30} color="#24aaff" />
       </TouchableOpacity>
     </View>
   );
@@ -33,14 +33,16 @@ export default function WelcomeScrean() {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#fa3c22',
+    backgroundColor: '#24aaff',
     flex: 1,
-    justifyContent: 'center',
+    justifyContent: 'space-between',
+    height: Dimensions.get("window").height,
     alignItems: 'center',
+    paddingBottom: 50
   },
   img: {
-    width: 360,
-    height: 360
+    width: 260,
+    height: 260
   },
   title: {
     fontFamily: 'roboto-bold',
@@ -51,16 +53,17 @@ const styles = StyleSheet.create({
     fontFamily: 'roboto-regular',
     fontSize: 18,
     padding: 10,
-    color: '#fff'
+    color: '#fff',
+    textAlign: 'center'
   },
   btn: {
     borderRadius: 200,
     width: 70,
     height: 70,
-    backgroundColor: '#008000',
+    backgroundColor: '#fff',
     justifyContent: 'center',
     alignItems: 'center',
     position: 'relative',
-    top: 60
+    top: 40
   }
 });
